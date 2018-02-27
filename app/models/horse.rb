@@ -15,4 +15,5 @@ class Horse < ApplicationRecord
   #       tsearch: { prefix: true }
   #     }
 
+
 end
