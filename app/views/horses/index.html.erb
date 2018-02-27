@@ -1,11 +1,11 @@
 <div class="container">
   <h1>Les chevaux à louer en ce moment</h1>
   <div class="row">
-    <ul>
+    <ul class: "one-horse">
         <% @horses.each do |horse| %>
         <div class="col-xs-12 col-sm-4 card">
-        <li>
-          <%= link_to "", horse_path(horse), class: "one-horse" %>
+        <li >
+          <%= link_to "", horse_path(horse) %>
           <%= render "shared/card", horse: horse %>
         </li>
       </div>

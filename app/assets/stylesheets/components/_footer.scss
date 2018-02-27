@@ -12,7 +12,7 @@
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color: $green;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -20,15 +20,9 @@
 }
 .footer-links a:hover {
   opacity: 1;
+  color: $green;
+
 }
 .footer .fa-heart {
-  color: #D23333;
-}
-
-.footer.fa-facebook {
-  color: #D23333;
-}
-
-.footer.fa-instagram {
-  color: #D23333;
+  color: $green;
 }

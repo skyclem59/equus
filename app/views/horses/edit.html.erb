@@ -14,8 +14,8 @@
       <%= f.input :breed, label: "Race", collection: ["Anglo arabe", "Camarguais", "Cheval de selle", "Cheval de trait", "Cob", "Connemara", "Fjord", "Frison", "KWPN", "Lusitanien", "Mérens", "Percheron", "Pur sang", "Selle français", "Shetland", "Trotteur", "Welsh"] %>
       <%= f.input :description, label: "Description" %>
 
-      <%= f.button :submit, "Enregistrer" %>
-      <%= link_to "Retour", horse_path(@horse) %>
+      <%= f.button :submit, "Enregistrer", class:"btn btn-success" %>
+      <%= link_to "Retour", horse_path(@horse), class:"btn btn-success" %>
       <% end %>
     </div>
   </div>
