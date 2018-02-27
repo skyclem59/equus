@@ -1,4 +1,7 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+
+
+<h2>please fill in missing informations</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -9,6 +12,14 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
+    <%= f.input :first_name, autocomplete: "off", hint: "Please enter here your first name", required: true %>
+    <%= f.input :last_name, autocomplete: "off", hint: "Please enter here your last name", required: true %>
+    <%= f.input :telephone, autocomplete: "off", hint: "Please enter here your phone number", required: true %>
+    <%= f.input :niveau, autocomplete: "off", hint: "Please select your level", required: true %>
+    <%= f.input :licence, autocomplete: "off", hint: "Please enter you licence number ", required: true %>
+    <%= f.input :assurance, autocomplete: "off", hint: "Please youy insurance contract number", required: true %>
+
+
 
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
@@ -25,3 +36,5 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>
