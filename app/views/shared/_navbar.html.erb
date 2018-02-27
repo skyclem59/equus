@@ -11,9 +11,10 @@
 
       <!-- Links when logged in -->
 
-      <%= link_to "Mon compte", edit_user_registration_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Mes chevaux", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Mes réservations", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Mon compte", edit_user_registration_path(@user), class: "navbar-wagon-item navbar-wagon-link"
+      <%= link_to "Ajouter mon cheval", new_horse_path %>
+      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
