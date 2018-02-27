@@ -1,9 +1,14 @@
 <div class="container">
   <h1>Les chevaux à louer en ce moment</h1>
-  <ul>
-    <div class="col-xs-12 col-sm-4 card">
-    <% @horses.each do |horse| %>
-      <li><%= link_to horse.name, horse_path(horse), class: "one-horse" %></li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <ul>
+        <% @horses.each do |horse| %>
+        <div class="col-xs-12 col-sm-4 card">
+        <li>
+          <%= link_to "", horse_path(horse), class: "one-horse" %>
+          <%= render "shared/card", horse: horse %>
+        </li>
+      </div>
+        <% end %>
+      </ul>
 </div>
