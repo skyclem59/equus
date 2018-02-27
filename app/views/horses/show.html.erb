@@ -1,4 +1,18 @@
-<h1><%= @horse.name.capitalize %></h1>
-<%= link_to "Mettre à jour", edit_horse_path %>
-<%= link_to "Supprimer", horse_path(@horse), method: :delete  %>
-<%= link_to "Retour", horses_path %>
+<div class="container">
+  <%= cl_image_tag @horse.photo, height: 300, width: 600, crop: :fill%>
+  <p><strong>Nom du cheval : </strong><%= @horse.name.capitalize %></p>
+  <p><strong>Discipline : </strong><%= @horse.category %></p>
+  <p><strong>Prix : </strong><%= @horse.price %></p>
+  <p><strong>Genre : </strong><%= @horse.gender %></p>
+  <p><strong>Age : </strong><%= @horse.age %></p>
+  <p><strong>Taille au garrot (cm) : </strong><%= @horse.size %></p>
+  <p><strong>Robe : </strong><%= @horse.coat %></p>
+  <p><strong>Race : </strong><%= @horse.breed %></p>
+  <p><strong>Description : </strong><%= @horse.description %></p>
+
+<div class="">
+  <%= link_to "Mettre à jour", edit_horse_path, class:"btn btn-success" %>
+  <%= link_to "Supprimer", horse_path(@horse), method: :delete, class:"btn btn-success" %>
+  <%= link_to "Retour", horses_path, class:"btn btn-success" %>
+</div>
+</div>
