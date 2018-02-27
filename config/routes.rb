@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-
-  resources :horses do
-    collection do
-    get 'random', to: "horses#random"  # Horses #random
+    resources :horses do
+      collection do
+       get 'random', to: "horses#random"  # Horses #random
+     end
     end
-  end
+  
+  resources :bookings
 
   # devise_for :users
   root to: 'pages#home'
