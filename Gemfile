@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'pundit'
+gem 'pg_search'
 
 # FRONT end
 gem 'cloudinary'

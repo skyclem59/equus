@@ -1,0 +1,6 @@
+<h1>Liste de tous les cheveau trouvés</h1>
+<ul>
+  <% @horses.each do |horse|%>
+    <li><%= link_to horse.name, horse_path(horse) %></li>
+  <% end %>
+</ul>
