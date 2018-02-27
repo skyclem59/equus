@@ -5,6 +5,10 @@ class HorsesController < ApplicationController
     @horses = Horse.all
   end
 
+  def random
+  @random = Horse.limit(3).order("RANDOM()")
+  end
+
   def show
   end
 
