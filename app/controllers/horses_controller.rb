@@ -2,11 +2,12 @@ class HorsesController < ApplicationController
   before_action :set_horse, only: [:show, :edit, :update, :destroy]
 
   def index
-    @horses = Horse.all
-  end
 
-  def random
-  @random = Horse.limit(3).order("RANDOM()")
+    if params[:query].present?
+          @horses = Horse.all
+        else
+          @horses = Horse.all
+        end
   end
 
   def show

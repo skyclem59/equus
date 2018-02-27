@@ -4,11 +4,6 @@ Rails.application.routes.draw do
 
 resources :horses do
 
-    collection do
-  get 'random', to: "horses#random"  # Horses #random
-
-  end
-
 end
 
 resources :bookings
