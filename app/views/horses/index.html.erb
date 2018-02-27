@@ -1,2 +1,8 @@
-<h1>Horses#index</h1>
-<p>Find me in app/views/horses/index.html.erb</p>
+<%= link_to "Ajouter mon cheval", new_horse_path %>
+<h1>Liste de tous les beaux chevaux</h1>
+<ul>
+  <% @horses.each do |horse|%>
+    <li><%= link_to horse.name, horse_path(horse) %></li>
+  <% end %>
+
+</ul>

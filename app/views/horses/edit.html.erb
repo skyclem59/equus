@@ -1,4 +1,4 @@
-<h1>Mettre mon cheval en location</h1>
+<h1>Mettre à jour mon cheval</h1>
 <%= simple_form_for (@horse) do |f|  %>
   <%= f.input :category, label: "Discipline", collection: ["Détente", "CSO", "Dressage"]  %>
   <%= f.input :price, label: "Prix mensuel", currency: "€" %>
@@ -10,6 +10,6 @@
   <%= f.input :breed, label: "Race", collection: ["Anglo arabe", "Camarguais", "Cheval de selle", "Cheval de trait", "Cob", "Connemara", "Fjord", "Frison", "KWPN", "Lusitanien", "Mérens", "Percheron", "Pur sang", "Selle français", "Shetland", "Trotteur", "Welsh"] %>
   <%= f.input :description, label: "Description" %>
 
-  <%= f.button :submit, label: "Valider"  %>
-  <%= link_to "Retour", horses_path %>
+  <%= f.button :submit, "Enregistrer" %>
+  <%= link_to "Retour", horse_path(@horse) %>
 <% end %>

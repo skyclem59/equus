@@ -1,2 +1,4 @@
-<h1>Horses#show</h1>
-<p>Find me in app/views/horses/show.html.erb</p>
+<h1><%= @horse.name.capitalize %></h1>
+<%= link_to "Mettre à jour", edit_horse_path %>
+<%= link_to "Supprimer", horse_path(@horse), method: :delete  %>
+<%= link_to "Retour", horses_path %>
