@@ -2,7 +2,7 @@
 <div class="container">
   <div class= "card-header">
      <div class="card-header-title">
-        <h3> Exemples de chevaux </h3>
+        <h3> Quelques chevaux à découvrir : </h3>
      </div>
      <div class="card-header-link">
         <%= link_to 'Tous les chevaux', horses_path, class:'btn btn-link' %>
@@ -13,3 +13,21 @@
     <%= render "shared/cards", horse: @horses %>
   </div>
 </div>
+<div class="container">
+
+  <div class="explication">
+      <div class="service-overview-item">
+        <div class="service-overview-item-title">Réservez</div>
+        <div class="service-overview-item-description">Vous avez trouvé le cheval parfaite ? Inscrivez-vous et faites une demande de location directement depuis la page du cheval. Les propriétaires vous répondront en général en moins de 24h.</div>
+      </div>
+      <div class="service-overview-item">
+          <div class="service-overview-item-title">Montez assurés</div>
+          <div class="service-overview-item-description">En payant la location sur le site vous bénéficiez de notre assurance tous risques  pendant toute la durée de la location.</div>
+        </div>
+      <div class="service-overview-item">
+        <div class="service-overview-item-title">Évaluez</div>
+        <div class="service-overview-item-description">À la fin de la location, rendez le cheval à son propriétaire et n'oubliez de faire une évaluation de votre expérience. Le propriétaire laissera un commentaire sur votre location ce qui facilitera vos prochaines réservations.</div>
+      </div>
+  </div>
+</div>
+
