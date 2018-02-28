@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.horse = @horse
    @booking.user_id = current_user.id
     if @booking.save
-      redirect_to booking_path(@booking.horse)
+      redirect_to booking_path(@booking)
     else
       render 'horses/show'
     end
