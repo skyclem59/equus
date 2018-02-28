@@ -7,7 +7,7 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <% if user_signed_in? %>
+  <% if user_signed_in? %>
 
     <!-- Links when logged in -->
 
@@ -17,52 +17,54 @@
     <form class="navbar-form" role="search">
       <div class="input-group">
         <%= form_tag horses_path, method: :get do %>
-              <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Que recherchez vous?"
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Que recherchez vous?"
               %>
-            <% end %>
-         <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-              </div>
+        <% end %>
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
 
-       </div>
-     </div>
-   </form>
-
+      </div>
+    </form>
 
 
 
-   <!-- end serach -->
-   <%= link_to "Mon compte", edit_user_registration_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
-   <%= link_to "Ajouter mon cheval", new_horse_path,class: "navbar-wagon-item navbar-wagon-link" %>
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+     <!-- end serach -->
+       <%= link_to "Mon compte", edit_user_registration_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
+       <%= link_to "Ajouter mon cheval", new_horse_path,class: "navbar-wagon-item navbar-wagon-link" %>
 
-   <%= link_to "Mes réservations", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+       <%= link_to "Mes réservations", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+
+    </div>
+
 
    <!-- Avatar with dropdown menu -->
-   <div class="navbar-wagon-item">
-    <div class="dropdown">
-      <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li>
-          <%= link_to "#" do %>
-          <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-          <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-          <% end %>
-        </li>
-      </ul>
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <%= image_tag "http://kitt.lewagon.com/placeholder/users/skyclem59", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to "Mon compte", edit_user_registration_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Ajouter mon cheval", new_horse_path,class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to "Mes réservations", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
   <% else %>
   <!-- Login link (when logged out) -->
   <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -74,9 +76,17 @@
   <div class="dropdown">
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-      <li><a href="#">Some mobile link</a></li>
-      <li><a href="#">Other one</a></li>
-      <li><a href="#">Other one</a></li>
+      <li><%= link_to "Mon compte", edit_user_registration_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
+      </li>
+      <li><%= link_to "Ajouter mon cheval", new_horse_path,class: "navbar-wagon-item navbar-wagon-link" %>
+      </li>
+      <li><%= link_to "Mes réservations", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          </i>  <%= t(".sign_out", default: "Log out") %>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>
