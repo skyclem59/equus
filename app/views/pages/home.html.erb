@@ -1,1 +1,15 @@
 <%= render 'shared/banner' %>
+<div class="container">
+  <div class= "card-header">
+     <div class="card-header-title">
+        <h3> Exemples de chevaux </h3>
+     </div>
+     <div class="card-header-link">
+        <%= link_to 'Tous les chevaux', horses_path, class:'btn btn-link' %>
+     </div>
+  </div>
+
+  <div class="home">
+    <%= render "shared/cards", horse: @horses %>
+  </div>
+</div>
