@@ -1,5 +1,6 @@
 class Horse < ApplicationRecord
   belongs_to :user
+  has_many :bookings
 
   validates :name, presence: true
   validates :age, presence: true
@@ -9,13 +10,11 @@ class Horse < ApplicationRecord
   validates :category, presence: true
 
   mount_uploader :photo, PhotoUploader
-  
+
   # include PgSearch
   #   pg_search_scope :global_search
   #     against: [ :name, :coat, :gender, :breed, :category ],
   #     using: {
   #       tsearch: { prefix: true }
   #     }
-
-
 end
