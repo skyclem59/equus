@@ -41,7 +41,7 @@
       <img src <%= "=#{ Horse.find(booking.horse_id).photo}" %>  />
     </div>
     <div class="profile hidden-xs">
-      <strong><%= Horse.find(2).name%></strong>
+      <strong><%= Horse.find(booking.horse_id).name%></strong>
       <article> <%= "#{ Horse.find(booking.horse_id).description}" %> </article>
     </div>
 
