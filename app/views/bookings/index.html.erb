@@ -1,6 +1,6 @@
-<%= render 'shared/bookings' %>
-
 <div class="container">
-
-
-</div>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <%= render 'shared/bookings',  booking: booking %>
+    <% end %>
+  </div>
