@@ -4,18 +4,18 @@ class HorsesController < ApplicationController
   def index
 
     if params[:query].present?
-          @horses = Horse.all
-        else
-          @horses = Horse.all
-        end
+      @horses = policy_scope(Horse)
+    else
+      @horses = policy_scope(Horse)
+    end
   end
 
   def show
   end
 
   def create
-    @horse = Horse.new(horse_params)
-    @horse.user = current_user
+    @horse = current_user.horses.new(horse_params)
+    authorize @horse
     if @horse.save
       redirect_to horse_path(@horse)
     else
@@ -25,17 +25,20 @@ class HorsesController < ApplicationController
 
   def new
     @horse = Horse.new
+    authorize @horse
   end
 
   def edit
   end
 
   def update
+    authorize @horse
     @horse.update(horse_params)
     redirect_to horses_path
   end
 
   def destroy
+    authorize @horse
     @horse.destroy
     redirect_to horses_path
   end
@@ -44,6 +47,7 @@ class HorsesController < ApplicationController
 
   def set_horse
     @horse = Horse.find(params[:id])
+    authorize @horse
   end
 
   def horse_params
