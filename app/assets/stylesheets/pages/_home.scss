@@ -17,3 +17,29 @@
     overflow-x: hidden;
   }
 }
+
+
+.explication {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.service-overview-item {
+  margin: 15px;
+  padding-top: 15px;
+  border-top: 5px solid black;
+  width: 210px;
+}
+.service-overview-item-title {
+font-weight:bold;
+font-size: 20px;
+}
+
+.btn-link {
+  text-decoration: none !important;
+  color: gray;
+}
+
+.card-header-title h3 {
+  font-size: 18px;
+}
