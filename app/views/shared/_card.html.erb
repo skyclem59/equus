@@ -1,8 +1,9 @@
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path horse.photo %>');">
   <div class="card-description">
-    <h2><%= horse.name  %></h2>
+    <h2><%= horse.name.capitalize %></h2>
     <p><strong><%= horse.price  %> €/jour</strong></p>
     <p><%= horse.description %> </p>
+
   </div>
   <%= link_to  "", horse_path(horse), class: "card-link" %>
 </div>
