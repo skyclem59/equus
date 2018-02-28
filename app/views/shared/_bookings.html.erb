@@ -11,15 +11,16 @@
 
     <div class="rsvp col-xs-2 col-sm-2">
         <img src="http://api.randomuser.me/portraits/med/men/71.jpg"/>
-        <i>nom prenom</i>
+        <i></i>
+        <i> <%= "#{current_user[:first_name]} #{current_user[:last_name]} " %></i>
      <div class="hidden-xs">
       <span class="fa fa-thumbs-up fa-2x"></span>
       <span class="fa fa-thumbs-down fa-2x"></span>
     </div>
   </div>
   <div class="info col-xs-8 col-sm-7">
-    Location du XX/XX/XX au XX/XX/XX
-    <div class="visible-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elitero..</div>
+   <%= "Location du : #{booking.date_from} au #{booking.date_to} " %>
+       <div class="visible-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elitero..</div>
     <div class="hidden-xs">
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#location" aria-controls="location" role="tab" data-toggle="tab">Location</a></li>
@@ -36,11 +37,12 @@
   </div>
   <div class="author col-xs-2 col-sm-3">
     <div class="profile-image">
-      <img src="http://api.randomuser.me/portraits/med/men/71.jpg"/>
+
+      <img src <%= "=#{ Horse.find(booking.horse_id).photo}" %>  />
     </div>
     <div class="profile hidden-xs">
-      <strong>Cheval reserve</strong>
-      <article>description cheval </article>
+      <strong><%= Horse.find(2).name%></strong>
+      <article> <%= "#{ Horse.find(booking.horse_id).description}" %> </article>
     </div>
 
   </div>
