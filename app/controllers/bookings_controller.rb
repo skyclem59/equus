@@ -1,16 +1,23 @@
 class BookingsController < ApplicationController
+
+
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
   end
 
   def show
+  @booking = Booking.find(params[:id])
+  authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @horse = Horse.find(params[:horse_id])
+    authorize @booking
+
     @booking.horse = @horse
-    if @booking.horse.save
+   @booking.user_id = current_user.id
+    if @booking.save
       redirect_to booking_path(@booking.horse)
     else
       render 'horses/show'
@@ -20,6 +27,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @horse = @booking.horse
+    authorize @booking
     @booking.destroy
     redirect_to horse_path(@horse)
   end
@@ -27,6 +35,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date_from, :date_to, :user_id, :horse_id)
+    params.require(:booking).permit(:date_from, :date_to, :user_id, :horse_id, :comment, :status)
   end
 end
