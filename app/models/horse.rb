@@ -8,6 +8,8 @@ class Horse < ApplicationRecord
   validates :price, presence: true
   validates :category, presence: true
 
+  mount_uploader :photo, PhotoUploader
+  
   # include PgSearch
   #   pg_search_scope :global_search
   #     against: [ :name, :coat, :gender, :breed, :category ],
