@@ -1,28 +1,40 @@
-<div class="container">
-  <%= cl_image_tag @horse.photo, style: "height: 300px; width: auto;"%>
-  <p><strong>Nom du cheval : </strong><%= @horse.name.capitalize %></p>
-  <p><strong>Discipline : </strong><%= @horse.category %></p>
-  <p><strong>Prix : </strong><%= @horse.price %> €/jour</p>
-  <p><strong>Genre : </strong><%= @horse.gender %></p>
-  <p><strong>Age : </strong><%= @horse.age %> ans</p>
-  <p><strong>Taille au garrot (cm) : </strong><%= @horse.size %></p>
-  <p><strong>Robe : </strong><%= @horse.coat %></p>
-  <p><strong>Race : </strong><%= @horse.breed %></p>
-  <p><strong>Description : </strong><%= @horse.description %></p>
-</div>
 
 <div class="container">
-  <%= link_to "Mettre à jour", edit_horse_path(@horse), class:"btn btn-success" %>
-  <%= link_to "Supprimer", horse_path(@horse), method: :delete, class:"btn btn-success" %>
-  <%= link_to "Retour", horses_path, class:"btn btn-success" %>
-</div>
+  <h1> <%= @horse.name.capitalize %> </h1>
 
-<div class="container">
-<h1>Réservation</h1>
-  <%= simple_form_for [@horse, @booking] do |f|  %>
-  <%= f.input :date_from %>
-  <%= f.input :date_to %>
 
-  <%= f.button :submit, class: "btn btn-success" %>
-  <% end %>
+     <div class="presentation">
+
+      <div class="container">
+        <%= cl_image_tag @horse.photo, style: "height: 300px; width: auto; padding:1px; border:1px solid #021a40; "%>
+        <br> <br>
+        <p><strong>Nom du cheval : </strong><%= @horse.name.capitalize %></p>
+        <p><strong>Discipline : </strong><%= @horse.category %></p>
+        <p><strong>Prix : </strong><%= @horse.price %> €/jour</p>
+        <p><strong>Genre : </strong><%= @horse.gender %></p>
+        <p><strong>Age : </strong><%= @horse.age %> ans</p>
+        <p><strong>Taille au garrot (cm) : </strong><%= @horse.size %></p>
+        <p><strong>Robe : </strong><%= @horse.coat %></p>
+        <p><strong>Race : </strong><%= @horse.breed %></p>
+        <p><strong>Description : </strong><%= @horse.description %></p>
+        <% if policy(@horse).edit? %>
+        <%= link_to "Mettre à jour", edit_horse_path(@horse), class:"btn btn-link" %>
+        <% end %>
+        <% if policy(@horse).destroy? %>
+        <%= link_to "Supprimer", horse_path(@horse), method: :delete, class:"btn btn-link" %>
+        <% end %>
+        <%= link_to "Retour", horses_path, class:"btn btn-link" %>
+      </div>
+
+      <div class="container">
+      <h2>Réservation</h2>
+        <%= simple_form_for [@horse, @booking] do |f|  %>
+        <%= f.input :date_from %>
+        <%= f.input :date_to %>
+
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+    </div>
 </div>

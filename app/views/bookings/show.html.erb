@@ -1,7 +1,7 @@
 <div class="container">
   <h1><strong>Votre réservation</strong></h1>
-  <%= cl_image_tag @booking.horse.photo, style: "height: 100px; width: auto;"%>
-  <div class="">
+  <%= cl_image_tag @booking.horse.photo, style: "height: 200px; width: auto;padding:1px; border:1px solid #021a40;"%>
+  <div class="recap-price">
     <strong><%= @booking.horse.price %></strong>€/jour</p>
     <p><i class="far fa-calendar-alt"></i>  <%= @booking.date_from %>        <i class="fas fa-arrow-right"></i>              <%= @booking.date_to %></p>
     <p>Soit : <%= @booking.horse.price %>€ x <%= (@booking.date_to - @booking.date_from).to_i %> jours</p>
