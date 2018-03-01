@@ -4,6 +4,7 @@
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.input :category, label: "Discipline", collection: ["Détente", "CSO", "Dressage"]  %>
+  <%= f.input :localisation, label: "address" %>
   <%= f.input :price, label: "Prix (€/jour)", currency: "€/jour" %>
   <%= f.input :name, label: "Nom du cheval" %>
   <%= f.input :gender, label: "Genre", collection: ["Hongre", "Jument", "Etalon"] %>

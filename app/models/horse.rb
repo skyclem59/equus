@@ -8,6 +8,7 @@ class Horse < ApplicationRecord
   validates :photo, presence: true
   validates :price, presence: true
   validates :category, presence: true
+  validates :localisation, presence: true
 
   mount_uploader :photo, PhotoUploader
 
