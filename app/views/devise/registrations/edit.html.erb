@@ -1,42 +1,96 @@
 <div class="container">
-
-
-<h2>please fill in missing informations</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+  <div class="form-inputs ">
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.input :first_name, autocomplete: "off", hint: "Please enter here your first name", required: true %>
-    <%= f.input :last_name, autocomplete: "off", hint: "Please enter here your last name", required: true %>
-    <%= f.input :telephone, autocomplete: "off", hint: "Please enter here your phone number", required: true %>
-    <%= f.input :niveau, autocomplete: "off", hint: "Please select your level", required: true %>
-    <%= f.input :licence, autocomplete: "off", hint: "Please enter you licence number ", required: true %>
-    <%= f.input :assurance, autocomplete: "off", hint: "Please youy insurance contract number", required: true %>
+
+    <!-- email + photo -->
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+       <%= f.input :email, required: true, autofocus: true, readonly: true %>
+     </div>
+     <div class="form-group col-md-4">
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
 
 
+    <div class="form-group col-md-12">
+      <h5 style="background-color: #b4b4b4">Vos informations personnelles</h5>
+    </div>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    <!-- first name last name -->
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.input :first_name, autocomplete: "off", hint: "Votre prénom ici", required: true %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.input :last_name, autocomplete: "off", hint: "Votre nom ici", required: true %>
+      </div>
+    </div>
+
+    <!--   telephone -->
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= f.input :telephone, autocomplete: "off", hint: "Votre telephone ici", required: true %>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-12 ">
+      <h5 style="background-color: #b4b4b4">Vos informations cavalier </h5>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= f.input :niveau, autocomplete: "off",  hint: "Sélectionnez votre niveau", required: true %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.input :licence, autocomplete: "off", hint: "Votre licence ici", required: true %>
+      </div>
+      <div class="form-group col-md-4">
+       <%= f.input :assurance, autocomplete: "off", hint: "Votre assurance ici", required: true %>
+     </div>
+   </div>
+
+   <!-- end forms inpu -->
+ </div>
+</div>
+
+<div class="form-group col-md-12">
+  <h5 style="background-color: #b4b4b4">Changer votre mot de passe</h5>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <%= f.input :password, autocomplete: "off", hint: "Votre nouveau mot de passe ici", required: false %>
   </div>
+  <div class="form-group col-md-4">
+   <%= f.input :password_confirmation, hint: "Retapez votre mot de passe", required: false %>
+ </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+ <!--  section validatio -->
+
+<div class="form-row">
+  <div class="form-group col-md-4">
+   <%= f.input :current_password, hint: "Entrez votre mot de passe pour valider", required: true %>
+ </div>
+ <!-- end section valmidation -->
+ <div class="form-row">
+  <div class="form-group col-md-4">
+    <div class="form-actions">
+      <%= f.button :submit , class: 'btn btn-primary' %>
+      <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+</div>
+    <% end %>
+
   </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-
+</div>
+</div>
 </div>
