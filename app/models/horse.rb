@@ -14,10 +14,8 @@ class Horse < ApplicationRecord
   geocoded_by :localisation
   after_validation :geocode, if: :will_save_change_to_localisation?
 
-  # include PgSearch
-  #   pg_search_scope :global_search
-  #     against: [ :name, :coat, :gender, :breed, :category ],
-  #     using: {
-  #       tsearch: { prefix: true }
-  #     }
+   include PgSearch
+
+   multisearchable :against => [ :name, :coat, :gender, :breed, :category, :localisation, :description  ]
+
 end
