@@ -31,10 +31,6 @@ class BookingsController < ApplicationController
     redirect_to horse_path(@horse)
   end
 
-  def status?
-
-  end
-
   private
 
   def booking_params

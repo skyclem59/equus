@@ -2,7 +2,6 @@ class HorsesController < ApplicationController
   before_action :set_horse, only: [:show, :edit, :update, :destroy]
 
   def index
-
     if params[:query].present?
       @horses = policy_scope(Horse)
     else
