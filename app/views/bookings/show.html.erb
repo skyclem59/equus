@@ -1,14 +1,22 @@
 <div class="container">
-  <h1><strong>Votre réservation</strong></h1>
-  <%= cl_image_tag @booking.horse.photo, style: "height: 200px; width: auto;padding:1px; border:1px solid #021a40;"%>
-  <div class="recap-price">
-    <strong><%= @booking.horse.price %></strong>€/jour</p>
-    <p><i class="far fa-calendar-alt"></i>  <%= @booking.date_from %>        <i class="fas fa-arrow-right"></i>              <%= @booking.date_to %></p>
-    <p>Soit : <%= @booking.horse.price %>€ x <%= (@booking.date_to - @booking.date_from).to_i %> jours</p>
+  <h1><strong>Votre réservation en cours</strong></h1>
 
-    <h4><strong>Total : <%= @booking.horse.price * (@booking.date_to - @booking.date_from).to_i %> €/jour</strong></h4>
+  <div class="card-booking">
+    <%= cl_image_tag @booking.horse.photo, style: "height: 200px; width: auto; padding:1px; border:1px solid #021a40;"%>
+    <div class="recap-price">
+      <p><strong><%= @booking.horse.price %>€</strong>/jour</p>
+      <p>
+        <i class="far fa-calendar-alt"></i>
+        <%= @booking.date_from %>
+        <i class="fas fa-arrow-right"></i>
+        <%= @booking.date_to %>
+      </p>
+      <p>Soit : <%= @booking.horse.price %>€ x <%= (@booking.date_to - @booking.date_from).to_i %> jours</p>
+      <h4><strong>Total : <%= @booking.horse.price * (@booking.date_to - @booking.date_from).to_i %> €</strong></h4>
+    </div>
   </div>
-  <div class="">
+
+  <div>
     <h3>Récapitulatif du cheval</h3>
     <p><strong>Nom du cheval : </strong><%= @booking.horse.name.capitalize %></p>
     <p><strong>Discipline : </strong><%= @booking.horse.category %></p>
@@ -20,6 +28,6 @@
     <p><strong>Description : </strong><%= @booking.horse.description %></p>
 
     <%= link_to "Mes réservations", bookings_path, class:"btn btn-success" %>
-    <%= link_to "Annuler", booking_path(@booking), method: :delete, class:"btn btn-success" %>
+    <%= link_to "Supprimer", booking_path(@booking), method: :delete, class:"btn btn-success" %>
   </div>
 </div>

@@ -17,13 +17,21 @@
         <p><strong>Robe : </strong><%= @horse.coat %></p>
         <p><strong>Race : </strong><%= @horse.breed %></p>
         <p><strong>Description : </strong><%= @horse.description %></p>
-        <% if policy(@horse).edit? %>
-        <%= link_to "Mettre à jour", edit_horse_path(@horse), class:"btn btn-link" %>
-        <% end %>
-        <% if policy(@horse).destroy? %>
-        <%= link_to "Supprimer", horse_path(@horse), method: :delete, class:"btn btn-link" %>
-        <% end %>
-        <%= link_to "Retour", horses_path, class:"btn btn-link" %>
+        <div class="owner">
+          <p><strong>Le propriétaire : </strong></p>
+          <%= image_tag @horse.user.photo, class: "img-horse-owner" %>
+          <%= "#{@horse.user.first_name} #{@horse.user.last_name}" %>
+        </div>
+        <br>
+        <div>
+          <% if policy(@horse).edit? %>
+          <%= link_to "Mettre à jour", edit_horse_path(@horse), class:"btn btn-link" %>
+          <% end %>
+          <% if policy(@horse).destroy? %>
+          <%= link_to "Supprimer", horse_path(@horse), method: :delete, class:"btn btn-link" %>
+          <% end %>
+          <%= link_to "Retour", horses_path, class:"btn btn-link" %>
+        </div>
       </div>
 
       <div class="container">
@@ -31,10 +39,8 @@
         <%= simple_form_for [@horse, @booking] do |f|  %>
         <%= f.input :date_from %>
         <%= f.input :date_to %>
-
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>
-
     </div>
 </div>

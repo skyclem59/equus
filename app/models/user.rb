@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :horses, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
-
   mount_uploader :photo, PhotoUploader
 
   # Implémenter méthode horses_booked pour connaitre la liste des chevaux que le user a loué

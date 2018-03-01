@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.horse = @horse
     @booking.user_id = current_user.id
+    @booking.status = false
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -28,6 +29,10 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
     redirect_to horse_path(@horse)
+  end
+
+  def status?
+
   end
 
   private
