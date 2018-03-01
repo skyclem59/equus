@@ -36,7 +36,6 @@ class BookingsController < ApplicationController
     redirect_to horse_path(@horse)
   end
 
-
   private
 
   def booking_params

@@ -18,7 +18,7 @@
           <div>
             <% if policy(booking).validate? %>
             <%= simple_form_for(booking) do |f|  %>
-            <%= f.input :status, label: "Statut", collection: [true, false] %>
+            <%= f.input :status, label: "Statut", collection: [0, 1] %>
             <%= f.button :submit, "Valider", class:"btn btn-success" %>
             <% end %>
             <% else %>
