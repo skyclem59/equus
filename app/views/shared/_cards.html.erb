@@ -4,10 +4,10 @@
 
           <% @horses.each do |horse| %>
           <div class="col-xs-12 col-sm-4 card">
-            <li >
+
               <%= link_to "", horse_path(horse) %>
               <%= render "shared/card", horse: horse %>
-            </li>
+
           </div>
           <% end %>
 
