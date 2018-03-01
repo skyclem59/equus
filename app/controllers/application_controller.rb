@@ -21,7 +21,9 @@ class ApplicationController < ActionController::Base
      :niveau,
      :licence,
      :assurance,
-     :admin
+     :admin,
+     :photo,
+     :photo_cache
      ])
   end
 
