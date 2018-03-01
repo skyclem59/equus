@@ -32,8 +32,15 @@ class PagesController < ApplicationController
 
       #  no search > random
     else
-      # @horses = policy_scope(Horse)
-      @horses = Horse.all.sample(6)
+    
+    @horses = Horse.all.sample(6)
+    @markers = Horse.where.not(latitude: nil, longitude: nil).map do |horse|
+      {
+        lat: horse.latitude,
+        lng: horse.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+      
     end
   end
 end

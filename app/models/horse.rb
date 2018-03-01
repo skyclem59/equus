@@ -9,7 +9,10 @@ class Horse < ApplicationRecord
   validates :price, presence: true
   validates :category, presence: true
 
+
   mount_uploader :photo, PhotoUploader
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
 
    include PgSearch
 
