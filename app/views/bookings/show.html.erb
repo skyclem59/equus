@@ -27,7 +27,7 @@
     <p><strong>Race : </strong><%= @booking.horse.breed %></p>
     <p><strong>Description : </strong><%= @booking.horse.description %></p>
 
-    <%= link_to "Mes réservations", bookings_path, class:"btn btn-success" %>
-    <%= link_to "Supprimer", booking_path(@booking), method: :delete, class:"btn btn-success" %>
+    <%= link_to "Mes réservations", bookings_path, class:"btn btn-primary" %>
+    <%= link_to "Supprimer", booking_path(@booking), method: :delete, class:"btn btn-primary" %>
   </div>
 </div>
