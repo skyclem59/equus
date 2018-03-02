@@ -19,7 +19,9 @@
         <p><strong>Description : </strong><%= @horse.description %></p>
         <div class="owner">
           <p><strong>Le propriétaire : </strong></p>
-          <%= image_tag @horse.user.photo, class: "img-horse-owner" %>
+            <% @avatar = "https://s3-eu-west-1.amazonaws.com/vegebase/fallback/avatar_default.png" %>
+          <% @avatar = @horse.user.photo unless @horse.user[:photo] == nil%>
+          <%= image_tag @avatar, class: "img-horse-owner" %>
           <%= "#{@horse.user.first_name} #{@horse.user.last_name}" %>
         </div>
         <br>
