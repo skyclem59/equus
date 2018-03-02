@@ -10,14 +10,17 @@
   background-position: center;
 }
 .banner h1 {
-  font-size: 90px;
+  font-size: 100px;
+  text-decoration: none;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  padding-bottom: 15px;
 }
 .banner p {
   font-size: 50px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.6;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
