@@ -10,9 +10,9 @@ class BookingsController < ApplicationController
       horse = b.horse
       if b.user == current_user
         @bookings_rider << b
-      elsif b.horse.user == current_user && b.status == false
-        @decided_bookings_owner << b
       elsif b.horse.user == current_user && b.status == true
+        @decided_bookings_owner << b
+      elsif b.horse.user == current_user && b.status == false
         @pending_bookings_owner << b
       end
     end
