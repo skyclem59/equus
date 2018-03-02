@@ -11,8 +11,8 @@
   <div class="center">
 
     <div class="modifs">
-      <div class="row">
-        <div class="col-xs-12 col-md-4">
+
+
           <%= simple_form_for @horse, html: { class: "horse_form"} do |f|  %>
           <%= f.input :photo %>
           <%= f.input :category, label: "Discipline", collection: ["Détente", "CSO", "Dressage"]   %>
@@ -29,8 +29,8 @@
           <%= f.button :submit, "Enregistrer", class:"btn btn-primary" %>
           <%= link_to "Retour", horse_path(@horse), class:"btn btn-primary" %>
           <% end %>
-        </div>
-      </div>
+
+
     </div>
   </div>
 </div>
