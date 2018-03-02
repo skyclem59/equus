@@ -2,9 +2,7 @@ class HorsesController < ApplicationController
   before_action :set_horse, only: [:show, :edit, :update, :destroy]
 
   def index
-
     @horses = Horse.where.not(latitude: nil, longitude: nil)
-
     @markers = @horses.map do |horse|
       {
         lat: horse.latitude,
@@ -12,7 +10,6 @@ class HorsesController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
-
     if params[:query].present?
       @horses = policy_scope(Horse)
     else
@@ -22,7 +19,6 @@ class HorsesController < ApplicationController
 
   def show
     @booking = Booking.new
-
     @markers = [{
             lat: @horse.latitude,
             lng: @horse.longitude#,
