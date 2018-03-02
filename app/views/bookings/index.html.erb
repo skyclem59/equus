@@ -1,2 +1,5 @@
 <%= render 'shared/bookings_riders' %>
-<%= render 'shared/bookings_owners' %>
+<% if (@pending_bookings_owner  == [] && @decided_bookings_owner == []) %>
+<% else %>
+  <%= render 'shared/bookings_owners' %>
+<% end %>

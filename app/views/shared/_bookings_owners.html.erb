@@ -52,17 +52,10 @@
             <p><%= booking.horse.price * (booking.date_to - booking.date_from).to_i %> €</p>
           </div>
           <div>
-            <% if policy(booking).validate? %>
-            <%= simple_form_for(booking) do |f|  %>
-            <%= f.input :status, label: "Statut", collection: [true, false] %>
-            <%= f.button :submit, "Valider", class:"btn btn-success" %>
-            <% end %>
-            <% else %>
             <p>
               <strong>Statut : </strong>
               <%= booking.status ? "Validée" : "En cours de validation" %>
             </p>
-            <% end %>
           </div>
           <div>
             <%= link_to "Détail de la réservation", booking_path(booking), class:"btn btn-success" %>
