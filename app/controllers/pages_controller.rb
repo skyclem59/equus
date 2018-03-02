@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
-   @avatar = "https://s3-eu-west-1.amazonaws.com/vegebase/fallback/avatar_default.png"
+
 
   def home
 
