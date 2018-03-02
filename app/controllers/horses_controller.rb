@@ -7,8 +7,8 @@ class HorsesController < ApplicationController
     @markers = @horses.map do |horse|
       {
         lat: horse.latitude,
-        lng: horse.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: horse.longitude,
+        #infoWindow: { content: render_to_string( 'horse.name') }
       }
     end
     if params[:query].present?

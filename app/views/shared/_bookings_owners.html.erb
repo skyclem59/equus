@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <h1> Vos locations en attentes</h1>
+    <% @pending_bookings_owner.each do |booking| %>
+        <div class="card-bookings">
+          <%= image_tag booking.horse.photo, class: "img-horse" %>
+          <div>
+            <strong><%= Horse.find(booking.horse_id).name%></strong>
+            <p>
+              <i class="far fa-calendar-alt"></i>
+              <%= booking.date_from %>
+              <i class="fas fa-arrow-right"></i>
+              <%= booking.date_to %>
+            </p>
+            <p><%= booking.horse.price * (booking.date_to - booking.date_from).to_i %> €</p>
+          </div>
+          <div>
+            <% if policy(booking).validate? %>
+            <%= simple_form_for(booking) do |f|  %>
+            <%= f.input :status, label: "Statut", collection: [true, false] %>
+            <%= f.button :submit, "Valider", class:"btn btn-success" %>
+            <% end %>
+            <% else %>
+            <p>
+              <strong>Statut : </strong>
+              <%= booking.status ? "Validée" : "En cours de validation" %>
+            </p>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to "Détail de la réservation", booking_path(booking), class:"btn btn-success" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h1> Vos locations archivées</h1>
+    <% @decided_bookings_owner.each do |booking| %>
+        <div class="card-bookings">
+          <%= image_tag booking.horse.photo, class: "img-horse" %>
+          <div>
+            <strong><%= Horse.find(booking.horse_id).name%></strong>
+            <p>
+              <i class="far fa-calendar-alt"></i>
+              <%= booking.date_from %>
+              <i class="fas fa-arrow-right"></i>
+              <%= booking.date_to %>
+            </p>
+            <p><%= booking.horse.price * (booking.date_to - booking.date_from).to_i %> €</p>
+          </div>
+          <div>
+            <p>
+              <strong>Statut : </strong>
+              <%= booking.status ? "Validée" : "En cours de validation" %>
+            </p>
+          </div>
+          <div>
+            <%= link_to "Détail de la réservation", booking_path(booking), class:"btn btn-success" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

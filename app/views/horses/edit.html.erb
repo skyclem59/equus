@@ -1,23 +1,36 @@
-<div class="container">
-  <h1>Mettre à jour mon cheval</h1>
-  <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <%= simple_form_for (@horse) do |f|  %>
-      <%= f.input :photo  %>
-      <%= f.input :category, label: "Discipline", collection: ["Détente", "CSO", "Dressage"]  %>
-      <%= f.input :localisation, label: "Address" %>
-      <%= f.input :price, label: "Prix (€/jour)", currency: "€/jour" %>
-      <%= f.input :name, label: "Nom du cheval" %>
-      <%= f.input :gender, label: "Genre", collection: ["Hongre", "Jument", "Etalon"] %>
-      <%= f.input :age, label: "Age", collection: (1..30) %>
-      <%= f.input :size, label: "Taille" %>
-      <%= f.input :coat, label: "Robe", collection: ["Alezan", "Bai", "Blanc", "Gris", "Isabelle", "Noir", "Pie", "Rouan"] %>
-      <%= f.input :breed, label: "Race", collection: ["Anglo arabe", "Camarguais", "Cheval de selle", "Cheval de trait", "Cob", "Connemara", "Fjord", "Frison", "KWPN", "Lusitanien", "Mérens", "Percheron", "Pur sang", "Selle français", "Shetland", "Trotteur", "Welsh"] %>
-      <%= f.input :description, label: "Description" %>
 
-      <%= f.button :submit, "Enregistrer", class:"btn btn-success" %>
-      <%= link_to "Retour", horse_path(@horse), class:"btn btn-success" %>
-      <% end %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 50%), url('http://ffe5etoiles.com/media/k2/items/cache/9af1826b772c4d0c3b40cc25c52f7637_XL.jpg');">
+  <div class="banner-content">
+    <h2>Mettre à jour mon cheval</h2>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="center">
+
+    <div class="modifs">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <%= simple_form_for @horse, html: { class: "horse_form"} do |f|  %>
+          <%= f.input :photo %>
+          <%= f.input :category, label: "Discipline", collection: ["Détente", "CSO", "Dressage"]   %>
+          <%= f.input :localisation, label: "Address" %>
+          <%= f.input :price, label: "Prix (€/jour)", currency: "€/jour" %>
+          <%= f.input :name, label: "Nom du cheval" %>
+          <%= f.input :gender, label: "Genre", collection: ["Hongre", "Jument", "Etalon"] %>
+          <%= f.input :age, label: "Age", collection: (1..30) %>
+          <%= f.input :size, label: "Taille" %>
+          <%= f.input :coat, label: "Robe", collection: ["Alezan", "Bai", "Blanc", "Gris", "Isabelle", "Noir", "Pie", "Rouan"] %>
+          <%= f.input :breed, label: "Race", collection: ["Anglo arabe", "Camarguais", "Cheval de selle", "Cheval de trait", "Cob", "Connemara", "Fjord", "Frison", "KWPN", "Lusitanien", "Mérens", "Percheron", "Pur sang", "Selle français", "Shetland", "Trotteur", "Welsh"] %>
+          <%= f.input :description, label: "Description" %>
+
+          <%= f.button :submit, "Enregistrer", class:"btn btn-primary" %>
+          <%= link_to "Retour", horse_path(@horse), class:"btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

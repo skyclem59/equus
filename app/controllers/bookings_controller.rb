@@ -3,6 +3,19 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking)
+    @pending_bookings_owner = []
+    @decided_bookings_owner = []
+    @bookings_rider = []
+    Booking.all.each do |b|
+      horse = b.horse
+      if b.user == current_user
+        @bookings_rider << b
+      elsif b.horse.user == current_user && b.status == true
+        @decided_bookings_owner << b
+      elsif b.horse.user == current_user && b.status == false
+        @pending_bookings_owner << b
+      end
+    end
   end
 
   def show

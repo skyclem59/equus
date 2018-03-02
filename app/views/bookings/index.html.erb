@@ -1,38 +1,5 @@
-<div class="container">
-  <div class="row">
-    <h1> Vos réservations récentes</h1>
-
-    <% @bookings.each do |booking| %>
-        <div class="card-bookings">
-          <%= image_tag booking.horse.photo, class: "img-horse" %>
-          <div>
-            <strong><%= Horse.find(booking.horse_id).name%></strong>
-            <p>
-              <i class="far fa-calendar-alt"></i>
-              <%= booking.date_from %>
-              <i class="fas fa-arrow-right"></i>
-              <%= booking.date_to %>
-            </p>
-            <p><%= booking.horse.price * (booking.date_to - booking.date_from).to_i %> €</p>
-          </div>
-          <div>
-            <% if policy(booking).validate? %>
-            <%= simple_form_for(booking) do |f|  %>
-            <%= f.input :status, label: "Statut", collection: [0, 1] %>
-            <%= f.button :submit, "Valider", class:"btn btn-success" %>
-            <% end %>
-            <% else %>
-            <p>
-              <strong>Statut : </strong>
-              <%= booking.status ? "Validée" : "En cours de validation" %>
-            </p>
-            <% end %>
-          </div>
-          <div>
-            <%= link_to "Détail de la réservation", booking_path(booking), class:"btn btn-success" %>
-          </div>
-        </div>
-    <% end %>
-
-  </div>
-</div>
+<%= render 'shared/bookings_riders' %>
+<% if (@pending_bookings_owner  == [] && @decided_bookings_owner == []) %>
+<% else %>
+  <%= render 'shared/bookings_owners' %>
+<% end %>
