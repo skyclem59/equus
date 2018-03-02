@@ -1,9 +1,19 @@
 .presentation {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 35px;
 }
+
 h1 {
   text-align: center;
   text-decoration: underline;
+}
+
+.resa-map {
+  margin: 25px;
+  width: 50%
+}
+
+.photo-description {
+  width: 50%;
 }

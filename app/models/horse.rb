@@ -9,12 +9,13 @@ class Horse < ApplicationRecord
   validates :price, presence: true
   validates :category, presence: true
 
-  mount_uploader :photo, PhotoUploader
 
-  # include PgSearch
-  #   pg_search_scope :global_search
-  #     against: [ :name, :coat, :gender, :breed, :category ],
-  #     using: {
-  #       tsearch: { prefix: true }
-  #     }
+  mount_uploader :photo, PhotoUploader
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
+
+   include PgSearch
+
+   multisearchable :against => [ :name, :coat, :gender, :breed, :category, :localisation, :description  ]
+
 end

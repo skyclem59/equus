@@ -13,6 +13,17 @@
     <%= render "shared/cards", horse: @horses %>
   </div>
 </div>
+
+<div class="container">
+  <div
+  id="map"
+  style="width: 100%;
+  height: 400px;"
+  data-markers="<%= @markers.to_json %>"
+  ></div>
+</div>
+
+
 <div class="container">
 
   <div class="explication">

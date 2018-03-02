@@ -4,10 +4,11 @@
 
      <div class="presentation">
 
-      <div class="container">
-        <%= cl_image_tag @horse.photo, style: "height: 300px; width: auto; padding:1px; border:1px solid #021a40; "%>
+      <div class="photo-description">
+        <%= cl_image_tag @horse.photo, class: 'img-responsive', style: "height: auto; width: 80%; padding:1px; border:1px solid #021a40; "%>
         <br> <br>
         <p><strong>Nom du cheval : </strong><%= @horse.name.capitalize %></p>
+        <p><strong>Address : </strong><%= @horse.localisation %></p>
         <p><strong>Discipline : </strong><%= @horse.category %></p>
         <p><strong>Prix : </strong><%= @horse.price %> €/jour</p>
         <p><strong>Genre : </strong><%= @horse.gender %></p>
@@ -33,13 +34,23 @@
         </div>
       </div>
 
-      <div class="container">
-      <h2>Réservation</h2>
-        <%= simple_form_for [@horse, @booking] do |f|  %>
-        <%= f.input :date_from %>
-        <%= f.input :date_to %>
-        <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
+      <div class="resa-map">
+        <h2>Réservation</h2>
+          <%= simple_form_for [@horse, @booking] do |f|  %>
+          <%= f.input :date_from %>
+          <%= f.input :date_to %>
+
+          <%= f.button :submit, class: "btn btn-primary" %>
+          <% end %>
+          <br> <br>
+          <% if @horse.latitude != nil  %>
+            <div class="img-responsive">
+              <div id="map" style="width: 80%; height: 300px;"
+              data-markers="<%= @markers.to_json %>">
+              </div>
+            </div>
+          <% end  %>
+
       </div>
     </div>
 </div>
